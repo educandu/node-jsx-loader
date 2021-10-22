@@ -6,7 +6,7 @@ function isPackageModule(moduleUrl) {
 }
 
 function isJsonFile(moduleUrl) {
-  return moduleUrl.endsWith('.json');
+  return /\.json/i.test(moduleUrl);
 }
 
 // eslint-disable-next-line no-unused-vars

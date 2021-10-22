@@ -13,7 +13,7 @@ export default function MyComponent() {
 describe('transformSource', () => {
   describe('when called with a JSON file extension', () => {
     it('should not transform it', async () => {
-      const { source } = await transformSource(Buffer.from(someJsx), { url: 'file:///my-module.json' });
+      const { source } = await transformSource(Buffer.from(someJsx), { url: 'file:///my-module.jSoN' });
       expect(source.toString()).toBe(someJsx);
     });
   });
