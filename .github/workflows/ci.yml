@@ -1,0 +1,44 @@
+name: CI
+on: [push]
+jobs:
+  verify:
+    runs-on: ubuntu-20.04
+    env:
+      NODE_ENV: development
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.10.0"
+          cache: "yarn"
+      - name: Install node modules
+        run: yarn install --non-interactive --check-files --frozen-lockfile
+      - name: Lint
+        run: yarn run lint
+      - name: Test
+        run: yarn run test
+  publish:
+    runs-on: ubuntu-20.04
+    needs: [verify]
+    if: startsWith(github.ref, 'refs/tags/')
+    env:
+      NODE_ENV: development
+    steps:
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+        with:
+          strip_v: true
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.10.0"
+          cache: "yarn"
+      - name: Install node modules
+        run: yarn install --non-interactive --check-files --frozen-lockfile
+      - name: npm version
+        run: npm version ${{steps.tag.outputs.tag}}
+      - name: npm publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

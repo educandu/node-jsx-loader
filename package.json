@@ -1,0 +1,31 @@
+{
+  "name": "@educandu/node-jsx-loader",
+  "version": "1.0.0",
+  "description": "An experimental module loader for node that transforms JSX to JS",
+  "type": "module",
+  "exports": "./index.js",
+  "author": "The educandu team <team@educandu.dev>",
+  "license": "MIT",
+  "homepage": "https://github.com/educandu/node-jsx-loader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/educandu/node-jsx-loader.git"
+  },
+  "keywords": [
+    "educandu",
+    "esm",
+    "jsx",
+    "loader"
+  ],
+  "scripts": {
+    "lint": "eslint \"**/*.js\"",
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js"
+  },
+  "dependencies": {
+    "@swc/core": "^1.2.102"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "jest": "^27.3.1"
+  }
+}
