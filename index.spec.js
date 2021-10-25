@@ -26,7 +26,7 @@ describe('transformSource', () => {
   describe('when called with a local module containing JSX', () => {
     it('should transform it to Javascript', async () => {
       const { source } = await transformSource(Buffer.from(someJsx), { url: 'file:///my-project/my-module.js' });
-      expect(source.toString()).toContain('React.createElement("p", null, "Hello World"));');
+      expect(source.toString()).toContain('React.createElement("p", null, "Hello World")');
     });
     it('should write a source map', async () => {
       const { source } = await transformSource(Buffer.from(someJsx), { url: 'file:///my-project/my-module.js' });

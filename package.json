@@ -22,7 +22,7 @@
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js"
   },
   "dependencies": {
-    "@swc/core": "^1.2.102"
+    "esbuild": "^0.13.9"
   },
   "devDependencies": {
     "eslint": "^8.0.1",
