@@ -39,6 +39,6 @@ jobs:
       - name: Authenticate with npm
         run: npm set //registry.npmjs.org/:_authToken ${{ secrets.NPM_AUTH_TOKEN }}
       - name: npm version
-        run: npm version --allow-same-version --git-tag-version=false --tag ${{ github.event.release.target_commitish }} ${{ steps.tag.outputs.tag }}
+        run: npm version --allow-same-version --git-tag-version=false ${{ steps.tag.outputs.tag }}
       - name: npm publish
         run: npm publish
