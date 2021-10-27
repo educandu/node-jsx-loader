@@ -1,3 +1,4 @@
+import url from 'url';
 import esbuild from 'esbuild';
 
 function isPackageModule(moduleUrl) {
@@ -8,20 +9,30 @@ function isJsModule(moduleUrl) {
   return /\.m?jsx?$/i.test(moduleUrl);
 }
 
-// eslint-disable-next-line no-unused-vars
-export async function transformSource(source, context, _defaultGetSource) {
+async function transform(source, filePath) {
+  const { code } = await esbuild.transform(source, {
+    loader: 'jsx',
+    format: 'esm',
+    target: 'esnext',
+    sourcemap: 'inline',
+    sourcefile: filePath
+  });
+
+  return code;
+}
+
+// Export a node compatible transform function:
+export async function transformSource(source, context) {
   if (!isJsModule(context.url) || isPackageModule(context.url)) {
     return { source };
   }
 
-  const transformOptions = {
-    loader: 'jsx',
-    format: 'esm',
-    target: 'esnext',
-    sourcemap: 'inline'
-  };
+  const result = await transform(source.toString(), url.fileURLToPath(context.url));
 
-  const { code } = await esbuild.transform(source.toString(), transformOptions);
-
-  return { source: code };
+  return { source: result };
 }
+
+// Export a jest compatible transform as the default export:
+export default {
+  processAsync: transform
+};

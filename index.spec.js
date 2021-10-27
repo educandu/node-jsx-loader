@@ -1,4 +1,4 @@
-import { transformSource } from './index.js';
+import jestTransform, { transformSource } from './index.js';
 
 const someJsx = `
 import React from 'react';
@@ -9,6 +9,19 @@ export default function MyComponent() {
   );
 }
 `;
+
+describe('jestTransform.processAsync', () => {
+  describe('when called with a local module containing JSX', () => {
+    it('should transform it to Javascript', async () => {
+      const result = await jestTransform.processAsync(someJsx, '/app/my-project/my-module.js');
+      expect(result).toContain('React.createElement("p", null, "Hello World")');
+    });
+    it('should write a source map', async () => {
+      const result = await jestTransform.processAsync(someJsx, '/app/my-project/my-module.js');
+      expect(result).toContain('//# sourceMappingURL=');
+    });
+  });
+});
 
 describe('transformSource', () => {
   describe('when called with a JSON file extension', () => {
