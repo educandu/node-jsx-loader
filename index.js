@@ -1,5 +1,6 @@
 import url from 'url';
 import esbuild from 'esbuild';
+import { promises as fs } from 'fs';
 
 function isPackageModule(moduleUrl) {
   return moduleUrl.includes('/node_modules/');
@@ -21,7 +22,7 @@ async function transform(source, filePath) {
   return code;
 }
 
-// Export a node compatible transform function:
+// Node < v16.12.0:
 export async function transformSource(source, context) {
   if (!isJsModule(context.url) || isPackageModule(context.url)) {
     return { source };
@@ -30,6 +31,19 @@ export async function transformSource(source, context) {
   const result = await transform(source.toString(), url.fileURLToPath(context.url));
 
   return { source: result };
+}
+
+// Node >= v16.12.0:
+export async function load(sourceUrl, context, defaultLoad) {
+  if (!isJsModule(sourceUrl) || isPackageModule(sourceUrl)) {
+    return defaultLoad(sourceUrl, context, defaultLoad)
+  }
+
+  const filename = url.fileURLToPath(sourceUrl);
+  const rawSource = await fs.readFile(filename, 'utf8');
+  const result = await transform(rawSource, filename);
+
+  return { format: 'module', source: result };
 }
 
 // Export a jest compatible transform as the default export:
