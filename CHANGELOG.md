@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0
+
+- Add support for node >= v16.17.0
+
 ## 2.2.0
 
 - Add support for node >= v16.12.0

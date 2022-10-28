@@ -1,6 +1,6 @@
 {
   "name": "@educandu/node-jsx-loader",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "An experimental module loader for node that transforms JSX to JS",
   "type": "module",
   "exports": "./index.js",
