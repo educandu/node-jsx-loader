@@ -43,7 +43,7 @@ export async function load(sourceUrl, context, defaultLoad) {
   const rawSource = await fs.readFile(filename, 'utf8');
   const result = await transform(rawSource, filename);
 
-  return { format: 'module', source: result };
+  return { format: 'module', source: result, shortCircuit: true };
 }
 
 // Export a jest compatible transform as the default export:
