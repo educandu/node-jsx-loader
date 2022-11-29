@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.0
+
+- Remove support for older node versions
+- Remove jest support
+
 ## 2.3.0
 
 - Add support for node >= v16.17.0

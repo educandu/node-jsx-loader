@@ -1,6 +1,6 @@
 {
   "name": "@educandu/node-jsx-loader",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "An experimental module loader for node that transforms JSX to JS",
   "type": "module",
   "exports": "./index.js",
@@ -17,16 +17,19 @@
     "jsx",
     "loader"
   ],
+  "engines": {
+    "node": "^18.0.0"
+  },
   "scripts": {
     "lint": "eslint \"**/*.js\"",
-    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js"
+    "test": "vitest --run"
   },
   "dependencies": {
-    "esbuild": "^0.13.13"
+    "esbuild": "^0.15.16"
   },
   "devDependencies": {
-    "eslint": "^8.2.0",
-    "jest": "^27.3.1",
-    "sinon": "^12.0.1"
+    "eslint": "^8.28.0",
+    "sinon": "^15.0.0",
+    "vitest": "^0.25.3"
   }
 }
