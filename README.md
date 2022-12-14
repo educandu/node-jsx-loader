@@ -1,6 +1,15 @@
 # node-jsx-loader
 
+[![codecov](https://codecov.io/gh/educandu/node-jsx-loader/branch/main/graph/badge.svg)](https://codecov.io/gh/educandu/node-jsx-loader)
+
 An experimental module loader for node that transforms JSX to JS
+
+## Prerequisites
+
+* node.js ^18.0.0
+* optional: globally installed gulp: `npm i -g gulp-cli`
+
+The output of this repository is an npm package (`@educandu/node-jsx-loader`).
 
 ---
 
