@@ -24,12 +24,11 @@
     "esbuild": "^0.16.9"
   },
   "devDependencies": {
-    "@educandu/dev-tools": "^6.0.0",
-    "@educandu/eslint-config": "^1.0.2",
+    "@educandu/dev-tools": "^6.0.2",
+    "@educandu/eslint-config": "^2.0.0",
     "@vitest/coverage-c8": "^0.25.8",
     "del": "^7.0.0",
     "eslint": "^8.30.0",
-    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "gulp": "^4.0.2",
