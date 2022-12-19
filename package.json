@@ -1,15 +1,11 @@
 {
   "name": "@educandu/node-jsx-loader",
-  "version": "3.0.0",
+  "version": "0.0.0",
   "description": "An experimental module loader for node that transforms JSX to JS",
   "type": "module",
-  "exports": "./index.js",
-  "author": "The educandu team <team@educandu.dev>",
-  "license": "MIT",
-  "homepage": "https://github.com/educandu/node-jsx-loader",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/educandu/node-jsx-loader.git"
+  "exports": "./src/index.js",
+  "engines": {
+    "node": "^18.0.0"
   },
   "keywords": [
     "educandu",
@@ -17,19 +13,28 @@
     "jsx",
     "loader"
   ],
-  "engines": {
-    "node": "^18.0.0"
-  },
-  "scripts": {
-    "lint": "eslint \"**/*.js\"",
-    "test": "vitest --run"
+  "license": "MIT",
+  "author": "Educandu Team <team@educandu.dev>",
+  "homepage": "https://github.com/educandu/node-jsx-loader",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/educandu/node-jsx-loader"
   },
   "dependencies": {
-    "esbuild": "^0.15.16"
+    "esbuild": "^0.16.9"
   },
   "devDependencies": {
-    "eslint": "^8.28.0",
-    "sinon": "^15.0.0",
-    "vitest": "^0.25.3"
+    "@educandu/dev-tools": "^6.0.0",
+    "@educandu/eslint-config": "^1.0.2",
+    "@vitest/coverage-c8": "^0.25.8",
+    "del": "^7.0.0",
+    "eslint": "^8.30.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "gulp": "^4.0.2",
+    "react": "^18.2.0",
+    "sinon": "^15.0.1",
+    "vitest": "^0.25.8"
   }
 }

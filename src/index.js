@@ -12,7 +12,7 @@ function isJsModule(moduleUrl) {
 
 export async function load(sourceUrl, context, defaultLoad) {
   if (!isJsModule(sourceUrl) || isPackageModule(sourceUrl)) {
-    return defaultLoad(sourceUrl, context, defaultLoad)
+    return defaultLoad(sourceUrl, context, defaultLoad);
   }
 
   const filename = url.fileURLToPath(sourceUrl);
