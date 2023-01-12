@@ -7,7 +7,7 @@ function isPackageModule(moduleUrl) {
 }
 
 function isJsModule(moduleUrl) {
-  return /\.m?jsx?$/i.test(moduleUrl);
+  return (/\.m?jsx?$/i).test(moduleUrl);
 }
 
 export async function load(sourceUrl, context, defaultLoad) {

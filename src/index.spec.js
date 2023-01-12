@@ -9,7 +9,7 @@ const loaderFilePath = fileURLToPath(new URL('./index.js', import.meta.url).href
 const jsxTestFileUrl = new URL('./test-files/test-file-with-jsx.js', import.meta.url).href;
 const outputTestFilePath = fileURLToPath(new URL('./test-files/test-file-with-output.js', import.meta.url).href);
 
-describe ('index', () => {
+describe('index', () => {
   const sandbox = createSandbox();
 
   describe('when used as a node loader', () => {
