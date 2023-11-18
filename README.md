@@ -4,12 +4,20 @@
 
 An experimental module loader for node that transforms JSX to JS
 
+[node.js api reference](https://nodejs.org/dist/latest-v21.x/docs/api/cli.html#--experimental-loadermodule)
+
 ## Prerequisites
 
 * node.js ^18.0.0
 * optional: globally installed gulp: `npm i -g gulp-cli`
 
 The output of this repository is an npm package (`@educandu/node-jsx-loader`).
+
+## How to use it
+
+```bash
+node --experimental-loader=@educandu/node-jsx-loader
+```
 
 ---
 
