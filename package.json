@@ -11,6 +11,7 @@
     "educandu",
     "esm",
     "jsx",
+    "tsx",
     "loader"
   ],
   "license": "MIT",
@@ -19,6 +20,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/educandu/node-jsx-loader"
+  },
+  "scripts": {
+    "test": "vitest",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "esbuild": "^0.16.9"

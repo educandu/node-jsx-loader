@@ -1,14 +1,12 @@
-import url from 'url';
+import url from 'node:url';
+import { promises as fs } from 'node:fs';
 import esbuild from 'esbuild';
-import { promises as fs } from 'fs';
 
-function isPackageModule(moduleUrl) {
-  return moduleUrl.includes('/node_modules/');
-}
+const isPackageModule = moduleUrl => moduleUrl.includes('/node_modules/');
 
-function isJsModule(moduleUrl) {
-  return (/\.m?jsx?$/i).test(moduleUrl);
-}
+const isJsModule = moduleUrl => (/\.m?[jt]sx?$/i).test(moduleUrl);
+
+const isTypeScriptModule = moduleUrl => (/\.tsx?$/i).test(moduleUrl);
 
 export async function load(sourceUrl, context, defaultLoad) {
   if (!isJsModule(sourceUrl) || isPackageModule(sourceUrl)) {
@@ -18,7 +16,7 @@ export async function load(sourceUrl, context, defaultLoad) {
   const filename = url.fileURLToPath(sourceUrl);
   const rawSource = await fs.readFile(filename, 'utf8');
   const { code } = await esbuild.transform(rawSource, {
-    loader: 'jsx',
+    loader: isTypeScriptModule(sourceUrl) ? 'tsx' : 'jsx',
     format: 'esm',
     target: 'esnext',
     sourcemap: 'inline',
