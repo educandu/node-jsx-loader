@@ -19,6 +19,8 @@ The output of this repository is an npm package (`@educandu/node-jsx-loader`).
 node --experimental-loader=@educandu/node-jsx-loader
 ```
 
+**NOTE** : The loader use the extention of your file to determine if it should transform it or not.
+
 ---
 
 ## OER learning platform for music

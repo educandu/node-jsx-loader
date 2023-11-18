@@ -6,7 +6,7 @@ import { assert, createSandbox } from 'sinon';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 const loaderFilePath = fileURLToPath(new URL('./index.js', import.meta.url).href);
-const jsxTestFileUrl = new URL('./test-files/test-file-with-jsx.js', import.meta.url).href;
+const jsxTestFileUrl = new URL('./test-files/test-file.jsx', import.meta.url).href;
 const outputTestFilePath = fileURLToPath(new URL('./test-files/test-file-with-output.js', import.meta.url).href);
 
 describe('index', () => {
