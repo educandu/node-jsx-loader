@@ -21,20 +21,19 @@
     "url": "https://github.com/educandu/node-jsx-loader"
   },
   "dependencies": {
-    "esbuild": "^0.16.9"
+    "esbuild": "^0.19.8"
   },
   "devDependencies": {
-    "@educandu/dev-tools": "^8.0.0",
-    "@educandu/eslint-config": "^2.2.1",
-    "@vitest/coverage-c8": "^0.25.8",
-    "del": "^7.0.0",
-    "eslint": "^8.30.0",
-    "eslint-plugin-import": "^2.27.4",
-    "eslint-plugin-react": "^7.32.0",
+    "@educandu/dev-tools": "^11.1.0",
+    "@vitest/coverage-v8": "^0.34.6",
+    "del": "^7.1.0",
+    "eslint": "^8.55.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "gulp": "^4.0.2",
     "react": "^18.2.0",
-    "sinon": "^15.0.1",
-    "vitest": "^0.25.8"
+    "sinon": "^17.0.1",
+    "vitest": "^0.34.6"
   }
 }
